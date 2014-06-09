@@ -33,9 +33,19 @@ except pkg_resources.DistributionNotFound:
     __version__ = _version_info.release_string()
     __canonical_version__ = _version_info.version_string()
 
+'''
+gettext.translation(domain[, localedir[, languages[, class_[, fallback[, codeset]]]]])
+Return a Translations instance based on the domain, localedir, and languages,
+which are first passed to find() to get a list of the associated .mo file paths.
+'''
+
 _localedir = os.environ.get('SWIFT_LOCALEDIR')
 _t = gettext.translation('swift', localedir=_localedir, fallback=True)
 
-
+'''
+gettext.gettext(message)
+Return the localized translation of message, based on the current global domain, language, and locale directory.
+This function is usually aliased as _() in the local namespace
+'''
 def gettext_(msg):
     return _t.gettext(msg)
