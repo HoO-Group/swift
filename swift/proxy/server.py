@@ -13,10 +13,17 @@
 # See the License for the specific language governing permissions and
 # limitations under the License.
 
-import mimetypes
+import mimetypes    # MIME(Multipurpose Internet Mail Extensions)多用途互联网邮件扩展类型
 import os
 import socket
+
+# Return the localized translation of message, based on the current global domain, language, and locale directory.
+# This function is usually aliased as _() in the local namespace
 from swift import gettext_ as _
+
+# Shuffle the sequence x in place.
+# The optional argument random is a 0-argument function returning a random float in [0.0, 1.0).
+# By default, this is the function random().
 from random import shuffle
 from time import time
 import itertools
@@ -70,7 +77,7 @@ class Application(object):
         if conf is None:
             conf = {}
         if logger is None:
-            self.logger = get_logger(conf, log_route='proxy-server')
+            self.logger = get_logger(conf, log_route='proxy-server')    # from swift.common.utils
         else:
             self.logger = logger
 
